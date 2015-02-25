@@ -99,7 +99,7 @@ public class KeyValuePairsDeserializer implements Deserializer {
             if (!keyValueString.contains(kvSeparator)) continue;
 
             String[] keyValue = keyValueString.split(kvSeparator, 2);
-            Integer colIndex = columnIndexMap.get(keyValue[0]);
+            Integer colIndex = columnIndexMap.get(keyValue[0].toLowerCase());
             if (colIndex != null) {
                 ObjectInspector fieldOI = rowFieldRefs.get(colIndex).getFieldObjectInspector();
                 // FIXME: もっとスマートにやりたい
